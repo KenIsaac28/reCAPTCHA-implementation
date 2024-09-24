@@ -37,19 +37,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $name = htmlspecialchars($_POST['name']);
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        $message = htmlspecialchars($_POST['message']);
         
-        if ($username === $user && $password === $pass)
-        {
-            echo "<script>Swal.fire('Login Success!','You have been registered','success',);</script>";
-        }
-
-        else {
-            echo "<script>Swal.fire('Invalid Login!','Invalid Username or Password','error',);</script>";
-
-        }
+        echo "<script>
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Registered Succesfully.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+              </script>";
     } else {
-        echo "<script>Swal.fire('Complete reCaptcha!','Please complete the recaptcha','error',);</script>";
+        
+        echo "<script>
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Please complete the reCAPTCHA verification.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+              </script>";
     }
 }
 ?>
