@@ -30,9 +30,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $user = "Isaac";
-    $pass = "123";
-
     $recaptcha_response = $_POST['g-recaptcha-response'];
     $secret_key = '6Ld7N00qAAAAALXGoBulH2-3yqpjvd59Q34rufjG';
     $verify_response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret_key}&response={$recaptcha_response}");
@@ -43,17 +40,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
 
-        if ($username === $user && $password === $pass)
-        {
-            echo "<script>Swal.fire('Login Success!','You have been registered','success',);</script>";
-        }
+        echo "<script>
+        Swal.fire({
+            title: 'Success!',
+            text: 'Login successful',
+            icon: 'success',
+            confirmButtonText: 'OK'});
+            </script>";
+} else {
 
-        else {
-            echo "<script>Swal.fire('Invalid Login!','Invalid Username or Password','error',);</script>";
-
-        }
-    } else {
-        echo "<script>Swal.fire('Complete reCaptcha!','Please complete the recaptcha','error',);</script>";
-    }
+        echo "<script>
+        Swal.fire({
+                title: 'Error!',
+                text: 'Please complete the reCAPTCHA verification.',
+                icon: 'error',
+                confirmButtonText: 'OK'});
+            </script>";
+}
 }
 ?>
