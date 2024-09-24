@@ -1,0 +1,76 @@
+body {
+    font-family: "Montserrat";
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #32f1ce, #8093eb);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: azure;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+input[type="text"], input[type="password"], input[type="submit"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    background-color: #32f1ce;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+input[type="submit"]:hover {
+    background-color: #8093eb;
+}
+.for-pass {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.toggle-btn {
+    position: fixed;
+    left: 80px;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+.login, .contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: medium;
+    color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 60%;
+    }
+}
